@@ -8,4 +8,4 @@
  */
 
 rootProject.name = 'grpc-test'
-include('app')
+//include('app')
