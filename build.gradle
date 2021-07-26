@@ -1,6 +1,7 @@
 plugins {
     // Provide convenience executables for trying out the examples.
-    id 'application'
+    //id 'application'
+    id 'java'
     // ASSUMES GRADLE 5.6 OR HIGHER. Use plugin version 0.8.10 with earlier gradle versions
     id 'com.google.protobuf' version '0.8.15'
     // Generate IntelliJ IDEA's .idea & .iml project files
@@ -14,8 +15,8 @@ repositories {
     mavenLocal()
 }
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+// sourceCompatibility = 1.7
+// targetCompatibility = 1.7
 
 // IMPORTANT: You probably want the non-SNAPSHOT version of gRPC. Make sure you
 // are looking at a tagged version of the example and not "master"!
@@ -61,21 +62,21 @@ sourceSets {
     }
 }
 
-startScripts.enabled = false
+// startScripts.enabled = false
 
-task helloWorldServer(type: CreateStartScripts) {
-    mainClassName = 'io.grpc.examples.helloworld.HelloWorldServer'
-    applicationName = 'hello-world-server'
-    outputDir = new File(project.buildDir, 'tmp')
-    classpath = startScripts.classpath
-}
+// task helloWorldServer(type: CreateStartScripts) {
+//     mainClassName = 'io.grpc.examples.helloworld.HelloWorldServer'
+//     applicationName = 'hello-world-server'
+//     outputDir = new File(project.buildDir, 'tmp')
+//     classpath = startScripts.classpath
+// }
 
-task helloWorldClient(type: CreateStartScripts) {
-    mainClassName = 'io.grpc.examples.helloworld.HelloWorldClient'
-    applicationName = 'hello-world-client'
-    outputDir = new File(project.buildDir, 'tmp')
-    classpath = startScripts.classpath
-}
+// task helloWorldClient(type: CreateStartScripts) {
+//     mainClassName = 'io.grpc.examples.helloworld.HelloWorldClient'
+//     applicationName = 'hello-world-client'
+//     outputDir = new File(project.buildDir, 'tmp')
+//     classpath = startScripts.classpath
+// }
 
 task runServer(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
@@ -87,8 +88,8 @@ task runClient(type: JavaExec) {
     main = 'io.grpc.examples.helloworld.HelloWorldClient'
 }
 
-applicationDistribution.into('bin') {
-    from(helloWorldServer)
-    from(helloWorldClient)
-    fileMode = 0755
-}
+// applicationDistribution.into('bin') {
+//     from(helloWorldServer)
+//     from(helloWorldClient)
+//     fileMode = 0755
+// }
