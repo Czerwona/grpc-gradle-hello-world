@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package helloworld;
+package io.grpc.example.server;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -22,6 +22,9 @@ import io.grpc.stub.StreamObserver;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
+import io.grpc.example.generated.HelloReply;
+import io.grpc.example.generated.HelloRequest;
+import io.grpc.example.generated.GreeterGrpc;
 
 /**
  * Server that manages startup/shutdown of a {@code Greeter} server.

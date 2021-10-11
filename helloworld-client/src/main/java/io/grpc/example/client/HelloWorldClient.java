@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package helloworld;
+package io.grpc.example.client;
 
 import io.grpc.Channel;
 import io.grpc.ManagedChannel;
@@ -24,6 +24,9 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import io.grpc.example.generated.HelloReply;
+import io.grpc.example.generated.HelloRequest;
+import io.grpc.example.generated.GreeterGrpc;
 /**
  * A simple client that requests a greeting from the {@link HelloWorldServer}.
  */
