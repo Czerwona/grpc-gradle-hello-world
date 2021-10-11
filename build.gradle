@@ -6,6 +6,9 @@ plugins {
     id 'com.google.protobuf' version '0.8.15'
     // Generate IntelliJ IDEA's .idea & .iml project files
     id 'idea'
+    //added for uberjar
+    id 'com.github.johnrengelman.shadow' version '7.0.0'
+
 }
 
 repositories {
@@ -62,6 +65,12 @@ sourceSets {
     }
 }
 
+// task sourcesJar(type: Jar, dependsOn: classes) {
+//     classifier = "sources"
+//     from sourceSets.main.allSource
+// }
+
+
 // startScripts.enabled = false
 
 // task helloWorldServer(type: CreateStartScripts) {
@@ -80,12 +89,12 @@ sourceSets {
 
 task runServer(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
-    main = 'io.grpc.examples.helloworld.HelloWorldServer'
+    main = 'helloworld.HelloWorldServer'
 }
 
 task runClient(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
-    main = 'io.grpc.examples.helloworld.HelloWorldClient'
+    main = 'helloworld.HelloWorldClient'
 }
 
 // applicationDistribution.into('bin') {
