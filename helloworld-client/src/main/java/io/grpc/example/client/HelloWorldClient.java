@@ -66,6 +66,7 @@ public class HelloWorldClient {
     String user = "world";
     // Access a service running on the local machine on port 50051
     String target = "localhost:50051";
+    int repeat = 10;
     // Allow passing in the user and target strings as command line arguments
     if (args.length > 0) {
       if ("--help".equals(args[0])) {
@@ -91,7 +92,9 @@ public class HelloWorldClient {
         .build();
     try {
       HelloWorldClient client = new HelloWorldClient(channel);
-      client.greet(user);
+      for(int i=0; i<repeat; i++){
+        client.greet(user+i);
+      }
     } finally {
       // ManagedChannels use resources like threads and TCP connections. To prevent leaking these
       // resources the channel should be shut down when it will no longer be used. If it may be used

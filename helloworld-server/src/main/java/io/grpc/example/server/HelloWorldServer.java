@@ -86,7 +86,7 @@ public class HelloWorldServer {
     @Override
     public void sayHello(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
       logger.info("Received HelloRequest!");
-      HelloReply reply = HelloReply.newBuilder().setMessage("Hello " + req.getName()).build();
+      HelloReply reply = HelloReply.newBuilder().setMessage("Hello from Java: " + req.getName()).build();
       responseObserver.onNext(reply);
       responseObserver.onCompleted();
       logger.info("Response Sent + Complete");
