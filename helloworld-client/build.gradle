@@ -2,8 +2,10 @@ plugins {
     // Provide convenience executables for trying out the examples.
     id 'application'
     id 'java'
+        id 'maven-publish'
+
     //added for uberjar
-    id 'com.github.johnrengelman.shadow' version '7.0.0'
+    // id 'com.github.johnrengelman.shadow' version '7.0.0'
 
 }
 
@@ -41,4 +43,16 @@ dependencies {
 
 application {
     mainClass = 'io.grpc.example.client.HelloWorldClient' 
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'io.grpc.example'
+            artifactId = 'client'
+            version = '0.1'
+
+            from components.java
+        }
+    }
 }

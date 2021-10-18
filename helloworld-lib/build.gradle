@@ -36,6 +36,9 @@ dependencies {
     // testImplementation "junit:junit:4.12"
 }
 
+group = 'io.grpc.example.generated'
+version = '0.1'
+
 //
 protobuf {
     protoc { artifact = "com.google.protobuf:protoc:${protocVersion}" }
